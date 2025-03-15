@@ -1,5 +1,5 @@
 import random
-
+import time
 print("Welcome to the Number Guessing Game!\nI'm thinking of a number between 1 and 100.")
 
 def start_the_game(diff):
@@ -7,7 +7,7 @@ def start_the_game(diff):
     print("The game starts now.")
     attempts = diff
     number_isnt_guessed = True
-
+    start = time.time()
     while number_isnt_guessed:
         print("Enter your guess:")
         guessed_num_input = input().strip()
@@ -35,8 +35,9 @@ def start_the_game(diff):
                 tryagain()
                 number_isnt_guessed = False
         else:
-            print(f"Congratulations! You guessed the correct number in {diff - attempts} attempts.")
-            number_isnt_guessed = False
+            end = time.time()
+            
+            print(f"Congratulations! You guessed the correct number in {diff - attempts} attempts.\n it took you {end - start}")
 
 def diff_selector():
     while True:
